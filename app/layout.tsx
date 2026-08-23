@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
-// TypeScript may not have a declaration for the global stylesheet in this project.
-// @ts-expect-error The Next.js build handles CSS side-effect imports.
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
