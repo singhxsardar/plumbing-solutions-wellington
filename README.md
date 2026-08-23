@@ -1,65 +1,157 @@
 # Plumbing Solutions Wellington
 
-A modern, mobile-first one-page website for a local Wellington plumbing
-business, built with Next.js (App Router), Tailwind CSS, Framer Motion, and
-Lucide icons.
+> A modern, responsive website designed for a Wellington-based plumbing business, focused on clear service presentation, strong visual identity, mobile usability, and easy customer contact.
 
-## Design notes
+## Live Website
 
-- **Palette:** deep blue `#0B3D62`, mid blue `#1C6DA8`, sky accent `#3FA9F5`,
-  light blue tint `#EAF4FB`, dark grey/ink text `#1E262E`.
-- **Type:** Space Grotesk (display headings), Inter (body copy), IBM Plex
-  Mono (eyebrows, labels, service tags) — loaded via `next/font/google`.
-- **Signature motif:** a "pipe route" line with elbow joints (see
-  `app/components/PipeDivider.tsx`) threads between sections, and the hero
-  rating badge is shaped like a water droplet — both nod to the trade
-  without leaning on generic stock icons.
-- All animations respect `prefers-reduced-motion` (handled globally in
-  `app/globals.css`).
+**Production:**  
+https://plumbing-solutions-wellington.netlify.app/
 
-## Getting started
+**Source Code:**  
+https://github.com/singhxsardar/plumbing-solutions-wellington
 
-```bash
-npm install
-npm run dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000).
+## Overview
 
-## Before you deploy
+Plumbing Solutions Wellington is a modern one-page business website built to give a local plumbing company a professional digital presence.
 
-Search the codebase for `TODO:` comments and replace the placeholders:
+The design combines a clean trade-focused visual identity with subtle motion, responsive layouts, authentic project imagery, and clear calls to action.
 
-- Real project photos in `Gallery.tsx`
-- A real Google Maps embed in `Contact.tsx`
-- The hero background photo in `Hero.tsx` (optional — the gradient works
-  well on its own too)
-- Confirm the phone number, WhatsApp number, and email address are correct
-  everywhere (`Header.tsx`, `Hero.tsx`, `Contact.tsx`)
+The website is designed with a **mobile-first approach**, ensuring a consistent experience across phones, tablets, and desktop devices.
 
-## Deploying to Vercel
+---
 
-1. Push this project to a GitHub repo.
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
-3. Vercel auto-detects Next.js — no config changes needed.
-4. Click **Deploy**.
+## Key Highlights
 
-## Project structure
+- Professional, trade-focused visual design
+- Fully responsive and mobile-first layout
+- Clean and accessible navigation
+- Smooth Framer Motion animations
+- Plumbing-inspired visual elements
+- Service-focused content structure
+- Project and gallery showcase
+- Customer testimonials section
+- Contact and enquiry section
+- Responsive mobile navigation
+- Reduced-motion accessibility support
+- SEO-ready page structure
+- Production deployment on Netlify
 
-```
+---
+
+## Services Presented
+
+The website presents the following plumbing services:
+
+- Blocked Drains
+- Leaking Taps & Pipes
+- Hot Water Systems
+- Bathroom & Kitchen Plumbing
+- Emergency Plumbing
+- General Maintenance
+- Gas Fitting
+
+> Business services and claims should remain consistent with the information confirmed by the business.
+
+---
+
+## Design System
+
+### Colour Palette
+
+| Colour | Hex |
+|---|---|
+| Deep Blue | `#0B3D62` |
+| Mid Blue | `#1C6DA8` |
+| Sky Blue | `#3FA9F5` |
+| Light Blue | `#EAF4FB` |
+| Ink | `#1E262E` |
+
+The colour system was selected to communicate cleanliness, reliability, water, and professionalism while maintaining strong readability.
+
+### Typography
+
+- **Space Grotesk** — Display headings
+- **Inter** — Body content
+- **IBM Plex Mono** — Labels, eyebrows, and service tags
+
+---
+
+## User Experience
+
+The website focuses on keeping the customer journey simple:
+
+**Discover → Explore Services → View Work → Learn About the Business → Get in Touch**
+
+The layout prioritises important business information and contact actions without overwhelming the visitor.
+
+---
+
+## Visual Direction
+
+The design uses subtle plumbing-inspired details rather than relying heavily on generic plumbing imagery.
+
+### Signature Elements
+
+- Pipe-route divider with elbow-joint details
+- Water-inspired droplet motif
+- Clean blue colour system
+- Soft card elevation
+- Minimal iconography
+- Subtle section animations
+- Large, readable typography
+
+---
+
+## Technology
+
+### Frontend
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+
+### UI & Animation
+
+- Framer Motion
+- Lucide React
+- Next Font
+
+### Deployment
+
+- Netlify
+
+---
+
+## Project Structure
+
+```text
 app/
-  layout.tsx        Root layout, fonts, metadata
-  page.tsx           Assembles all sections
-  globals.css         Base styles, focus states, reduced-motion rules
-  components/
-    Header.tsx        Sticky navbar with mobile menu
-    Hero.tsx           Headline, CTAs, droplet rating badge
-    Services.tsx       8-service grid
-    WhyUs.tsx           6-point feature grid
-    Gallery.tsx        Project photo placeholders
-    Testimonials.tsx  3 review cards
-    About.tsx           Local-focus copy + service area card
-    Contact.tsx        Phone/WhatsApp/email + map placeholder
-    Footer.tsx          Footer links and legal line
-    PipeDivider.tsx    Signature pipe-route section divider
-```
+├── layout.tsx
+├── page.tsx
+├── globals.css
+│
+└── components/
+    ├── Header.tsx
+    ├── Hero.tsx
+    ├── Services.tsx
+    ├── WhyUs.tsx
+    ├── Gallery.tsx
+    ├── Testimonials.tsx
+    ├── About.tsx
+    ├── Contact.tsx
+    ├── Footer.tsx
+    └── PipeDivider.tsx
+
+public/
+└── images/
+    └── gallery/
+        ├── bathroom-installation.jpg
+        ├── bathroom-renovation.jpg
+        ├── hot-water-system.jpg
+        ├── kitchen-plumbing.jpg
+        ├── kitchen-sink.jpg
+        ├── laundry-plumbing.jpg
+        └── toilet-installation.jpg
