@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -41,6 +43,32 @@ const PROJECTS = [
 ];
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<{
+    image: string;
+    alt: string;
+    title: string;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Prevent background page scrolling while the image is open
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage]);
+
   return (
     <section id="gallery" className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
@@ -71,14 +99,21 @@ export default function Gallery() {
               }}
               className="group"
             >
-              <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-tint-100 shadow-card transition-shadow duration-300 group-hover:shadow-cardHover">
-                <img
-                  src={project.image}
-                  alt={project.alt}
-                  loading={i < 3 ? "eager" : "lazy"}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedImage(project)}
+                aria-label={`Open ${project.title} photo`}
+                className="block w-full cursor-zoom-in text-left"
+              >
+                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-tint-100 shadow-card transition-shadow duration-300 group-hover:shadow-cardHover">
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </button>
 
               <figcaption className="mt-2 text-sm font-medium text-ink-700">
                 {project.title}
@@ -87,6 +122,37 @@ export default function Gallery() {
           ))}
         </div>
       </div>
+
+      {/* Full-size image viewer */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedImage.title} photo viewer`}
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image viewer"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-6 sm:top-6"
+          >
+            <X size={24} />
+          </button>
+
+          <div
+            className="relative flex max-h-[90vh] max-w-[95vw] items-center justify-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.alt}
+              className="max-h-[90vh] max-w-[95vw] rounded-xl object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
