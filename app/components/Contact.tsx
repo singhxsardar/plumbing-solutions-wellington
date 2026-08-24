@@ -19,7 +19,7 @@ const PHONE_TEL = "tel:+6421738121";
 const WHATSAPP_LINK = "https://wa.me/6421738121";
 const EMAIL = "info@plumbingsolutionswellington.co.nz";
 
-const WEB3FORMS_ACCESS_KEY = "0bfc62ae-c106-4a5e-8437-92dc1f667454";
+const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY";
 
 const ADDRESS = "1 Cara Crescent, Paparangi, Wellington 6037, New Zealand";
 
